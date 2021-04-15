@@ -1,5 +1,6 @@
 import unittest
-from ipynb.fs.full.TasksForLecture1 import speed,helpCauchy,leapYear
+from ipynb.fs.full.Tasks1 import speed,helpCauchy,leapYear
+
 
 
 class MyTestCase(unittest.TestCase):
