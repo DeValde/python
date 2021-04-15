@@ -1,5 +1,13 @@
 import unittest
-from ipynb.fs.full.Tasks2 import minifizzbuzz,helpVlad,exist
+import math
+from ipynb.fs.full.Tasks2 import minifizzbuzz,helpVlad,exist,area
+
+def Geron(a,b,c):
+    p = (a + b + c) / 2
+    return math.sqrt(p * (p - a) * (p - b) * (p - c))
+def circle(r):
+    return 3*r^2
+
 
 
 class MyTestCase(unittest.TestCase):
@@ -17,7 +25,12 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(exist(1,5,10),False)
         self.assertEqual(exist(10,25,3),False)
         self.assertEqual(exist(2,5,3),True)
-
+    def test_area(self):
+        self.assertEqual(area('1'),Geron(int(input()),int(input()),int(input())))
+        self.assertEqual(area('2'),int(input())*int(input()))
+        self.assertEqual(area('3'),circle(int(input())))
+        with self.assertRaises(Exception) as context:
+            area('4')
 
 if __name__ == '__main__':
     unittest.main()
