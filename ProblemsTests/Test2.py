@@ -1,12 +1,22 @@
 import unittest
 import math
-from ipynb.fs.full.Tasks2 import minifizzbuzz,helpVlad,exist,area
+import import_ipynb
+from Task2 import  minifizzbuzz,helpVlad,exist,area,sqEqu
+
 
 def Geron(a,b,c):
     p = (a + b + c) / 2
     return math.sqrt(p * (p - a) * (p - b) * (p - c))
 def circle(r):
     return 3*r^2
+def Discr(a,b,c):
+    D = b*b-4*a*c
+    if D < 0:
+        raise Exception("D<0")
+    elif D == 0:
+        return (-b + math.sqrt(D)) / 2 / a
+    else:
+        return (((-b + math.sqrt(D)) / 2 / a), ((-b - math.sqrt(D)) / 2 / a))
 
 
 
@@ -31,6 +41,8 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(area('3'),circle(int(input())))
         with self.assertRaises(Exception) as context:
             area('4')
+    def test_sqEqu(self):
+        self.assertAlmostEqual(sqEqu(),Discr(float(input()),float(input()),float(input())),places=6) # проверить для трех случаев
 
 if __name__ == '__main__':
     unittest.main()
