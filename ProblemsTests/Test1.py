@@ -1,5 +1,7 @@
 import unittest
-from ipynb.fs.full.Tasks1 import speed,helpCauchy,leapYear
+import import_ipynb
+from ATasks1 import speed,helpCauchy,leapYear
+
 
 
 
